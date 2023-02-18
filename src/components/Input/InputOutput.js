@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './InputOutput.css'
 import Run from "../../images/run.png"
@@ -98,6 +99,24 @@ function InputOutput() {
                 <div className='io-area'>
                     <textarea className='io-area io-area-text' spellCheck='false' value={outputData} />
                 </div>
+=======
+import React, { useEffect, useState } from 'react'
+import './InputOutput.css'
+const fs = window.require('fs');
+function InputOutput({output}) {
+    const [outputData,setOutputData] = useState();
+    useEffect(()=>{
+        fs.readFile("D:\\SDP\\io\\output.txt", 'utf8', function (err, data) {
+            setOutputData(data)
+          })
+    })
+    return (
+        <div className='' style={{height:'100%',width:'100%'}}> 
+            <div className="inp_out" >
+                <textarea className='io-area ' spellCheck='false' />
+                <textarea className='io-area' spellCheck='false' value={outputData}/>
+                
+>>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
             </div>
         </div>
     )
