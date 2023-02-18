@@ -1,71 +1,96 @@
-
 .ft-container {
-    color: white;
-    display: flex;
-    flex-direction:column;
-    width: inherit;
-    height: inherit;
-    
-}
-.ft-nav{
-     margin: 1rem;
-}
-.ft-name{
-    width: inherit;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-}
-.ft-name img{
-    width: 30px;
-    filter: invert(1);
+  color: white;
+  /* display: flex; */
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
 
 }
-.ft-name *{
-    padding-right: 0.2rem;
-    padding-left:0.2rem ;
-    font-family: Roboto;
-}
-.treeview ul{
-    list-style-type: none;
-    padding: 0px;
-    padding-left: 10px;
+
+.ft-nav {
+  margin: 1rem;
 }
 
-.treeview{
-    margin-top: 1rem;
-    width: inherit;
-    height: 78vh;
-    padding: 10 px 0;
-    overflow-y:scroll ;
+.ft-name {
+  width: inherit;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
 
+.ft-name img {
+  width: 30px;
+  filter: invert(1);
 
-.caret {
-    cursor: pointer;
-    -webkit-user-select: none; /* Safari 3.1+ */
-    -moz-user-select: none; /* Firefox 2+ */
-    -ms-user-select: none; /* IE 10+ */
-    user-select: none;
-  }
+}
+
+.ft-name * {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+  font-family: Roboto;
+}
+
+#myUL {
+  margin-right: 1.2rem;
+}
+
+.treeview ul {
+  list-style-type: none;
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.treeview {
+  margin-top: 1rem;
+  width: inherit;
+  height: 78vh;
+  padding: 10 px 0;
+  overflow-y: scroll;
+}
+
+.recc_tree li,
+.recc_tree ul {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.t-folder {
+  /* line-height: 12px; */
+  color: var(--skin);
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.t-folder img {
+  padding-right: 3px;
+  filter: invert(1);
+}
+.t-file img{
+  padding-right: 6px;
+}
+
+.t-file {
+
+  max-width: inherit;
+  word-break: break-all;
+  padding-left: 20px;
+}
+
+.t-file,
+.t-folder {
+  font-size: 1.15em;
+  margin-bottom: 5px;
   
-  .caret::before {
-    content: "\25B6";
-    color: black;
-    display: inline-block;
-    margin-right: 6px;
-  }
-  
-  .caret-down::before {
-    -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Safari */
-    transform: rotate(90deg);  
-  }
-  
-  .nested {
-    display: none;
-  }
-  
-  .active {
-    display: block;
-  }
+}
+.recc_tree span{
+  padding: 2px 2px 2px 7px;
+  border-radius: 5px;
+
+}
+.recc_tree .t-file:hover,.recc_tree .t-folder:hover {
+  background: var(--expandableHoverColor);
+}
+li{
+  border-left: 0.1px inset var(--expandableHoverColor);
+}
