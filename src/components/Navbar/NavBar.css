@@ -1,0 +1,27 @@
+#dropdown-basic::after {
+    content: none;
+}
+#dropdown-basic{
+    background-color: inherit;
+    outline: none;
+    border: none;
+    font-family: Roboto;
+    font-size: 17px;
+    /* padding-left: 0; */
+    /* margin-left: 0; */
+}
+#dropdown-basic:hover{
+    background-color: rgba(35, 34, 34, 0.707);
+}
+.n-container{
+    width: inherit;
+    /* height: 40%; */
+    display: flex;
+    z-index: 1000;
+}
+label{
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+        
+}

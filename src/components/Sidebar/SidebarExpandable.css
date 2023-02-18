@@ -1,0 +1,13 @@
+.SidebarExpUi{
+    flex-direction: row;
+    background-color: var(--sidebarOpen);
+    /* overflow: hidden; */
+    
+    
+}
+.s-open{
+    width: inherit;
+    /* background-color:red; */
+    /* color: white; */
+    
+}
