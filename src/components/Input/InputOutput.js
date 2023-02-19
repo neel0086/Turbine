@@ -1,20 +1,26 @@
-<<<<<<< HEAD
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './InputOutput.css'
 import Run from "../../images/run.png"
 import Save from "../../images/save.png"
 
 import { runCpp, runPy } from '../Editor/run';
-import { FileContext } from '../../context/FileProvider';
-import { CodeContext } from '../../context/CodeProvider';
-import { LanguageContext } from '../../context/LanguageProvider';
+import { SuggestionContext } from '../../context/SuggestionProvider';
+import { ProviderContext } from '../../context/Provider';
 const fs = window.require('fs');
-function InputOutput() {
+function InputOutput({ suggestionResult }) {
     const [outputData, setOutputData] = useState();
     const [inputData, setInputData] = useState("");
-    const { fileVal } = useContext(FileContext);
-    const { codeVal, setCodeVal } = useContext(CodeContext)
-    const { languageMode } = useContext(LanguageContext)
+    console.log(suggestionResult)
+
+    const { suggestionVal, setSuggestionVal } = useContext(SuggestionContext)
+
+    const {
+        fileVal,
+        codeVal,
+        setCodeVal,
+        languageMode
+    } = useContext(ProviderContext)
+
     const outputFlag = useRef()
     useEffect(() => {
         if (!outputFlag.current) {
@@ -38,7 +44,7 @@ function InputOutput() {
 
         try {
             if (languageMode == "c_pp") {
-                
+
                 if (fileVal['path'].split('.')[1] == "cpp") {
                     setOutputData(await runCpp(fileVal['path']))
                 }
@@ -47,12 +53,12 @@ function InputOutput() {
                 }
 
             }
-            else if (languageMode == "python3" || languageMode=="python2") {
+            else if (languageMode == "python3" || languageMode == "python2") {
                 if (fileVal['path'].split('.')[1] == "py") {
-                    
+
                     setOutputData(await runPy(fileVal['path']))
                 }
-                else{
+                else {
                     errorHandle()
                 }
             }
@@ -88,35 +94,29 @@ function InputOutput() {
 
     return (
         <div className="io-screen" style={{ height: '100%', width: '100%' }}>
-            <div className='runBtn'>
-                <img src={Save} onClick={SaveFile} />
-                <img src={Run} onClick={handleSubmit} />
+            <div className='io-navbar'>
+                <div className='suggestion'>
+                    {suggestionResult && suggestionResult.map((key, index) => {
+                        return <span>{key.item}</span>
+                    })}
+
+                    {/* <span>hello</span> */}
+
+                </div>
+                <div className='runBtn'>
+                    <img src={Save} onClick={SaveFile} />
+                    <img src={Run} onClick={handleSubmit} />
+                    {/* <img src={CloseBtn} className="closeBtn"/> */}
+                </div>
             </div>
             <div className="inp_out">
                 <div className='io-area'>
+
                     <textarea className='io-area io-area-text' onChange={(e) => SaveInput(e)} value={inputData} spellCheck='false' />
                 </div>
                 <div className='io-area'>
                     <textarea className='io-area io-area-text' spellCheck='false' value={outputData} />
                 </div>
-=======
-import React, { useEffect, useState } from 'react'
-import './InputOutput.css'
-const fs = window.require('fs');
-function InputOutput({output}) {
-    const [outputData,setOutputData] = useState();
-    useEffect(()=>{
-        fs.readFile("D:\\SDP\\io\\output.txt", 'utf8', function (err, data) {
-            setOutputData(data)
-          })
-    })
-    return (
-        <div className='' style={{height:'100%',width:'100%'}}> 
-            <div className="inp_out" >
-                <textarea className='io-area ' spellCheck='false' />
-                <textarea className='io-area' spellCheck='false' value={outputData}/>
-                
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
             </div>
         </div>
     )

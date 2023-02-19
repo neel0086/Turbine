@@ -3,7 +3,6 @@
     background-color: var(--fbutton);
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
     width: 100%;
     height: 100%;
 }
@@ -26,8 +25,8 @@
     flex-direction: column;
 }
 .io-screen .runBtn{
-    padding: 8px 20px;
-    float: right;
+    padding: 1px 20px;
+    
     color: var(--white);
     background:var(--fbutton);
 
@@ -38,16 +37,31 @@
 }
 .io-screen .runBtn img:hover{
     filter: invert(1);
-=======
 }
-.io-area{
-    width: inherit;
-    height: inherit;
+
+.io-screen .io-navbar{
+    background:var(--fbutton);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: var(--white);
-    font-family: Consolas,"Courier New",monospace;
-    background: inherit;
-    padding:5px 10px;
-    resize: none;
-    
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
+}
+.io-screen .io-navbar .suggestion{
+    margin: 5px 0;
+}
+.io-screen .io-navbar .suggestion span{
+    margin:0 10px;
+    padding: 3px 15px;
+    vertical-align: middle;
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--fbar);
+    border-radius: 4px;
+}
+.closeBtn{
+    margin-left: 25px;
+    width: 18px;
+    filter: invert(0.5);
 }

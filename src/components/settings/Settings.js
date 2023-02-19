@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SideBarContext } from '../../context/SideBarProvider'
 import { Button, Modal, Form } from 'react-bootstrap';
 import Setting from '../../images/settings.png'
 
@@ -8,12 +7,16 @@ import KeyBoardShortcuts from './KeyBoardShortcuts';
 import FontAndStyles from './FontAndStyles';
 import Appearence from './Appearence';
 import Privacy from './Privacy';
+import { ProviderContext } from '../../context/Provider';
 function Settings() {
 
-    const { sideBarVal, setSideBarVal } = useContext(SideBarContext)
     const [open, setOpen] = useState(false)
     const [option, setOption] = useState("")
 
+    const {
+        sideBarVal,
+        setSideBarVal
+    } = useContext(ProviderContext);
     useEffect(() => {
         if (sideBarVal == "Settings")
             setOpen(true)
@@ -27,16 +30,16 @@ function Settings() {
     }
     return (
 
-        <div>
-            <Modal show={open} onHide={closeModal} size='xl' className='no-border border-0'>
-                <Modal.Header style={{ background: 'black' }} className='no-border border-0'>
+        // <div>
+            <Modal show={open} onHide={closeModal} size='xl'>
+                <Modal.Header style={{ background: 'black',border:0 }} >
 
                     <div className='m-header'>
                         <img className="d-icons" src={Setting} />
                         Settings
                     </div>
                 </Modal.Header>
-                <Modal.Body style={{ background: '#000000e6' }} className='no-border border-0'>
+                <Modal.Body style={{ background: '#000000e6',border:0 }}>
                     <div className="m-sidebar">
                         <div className='m-options'>
                             <p onClick={() => setOption("KeyBoard Shortcuts")}>KeyBoard Shortcuts</p>
@@ -54,13 +57,13 @@ function Settings() {
                         </div>
                     </div>
                 </Modal.Body>
-                <Modal.Footer style={{ background: 'black' }} className='no-border border-0'>
+                <Modal.Footer style={{ background: 'black',border:0 }}>
                     {/* <Button>Ok</Button> */}
                     <Button className='bg-dark border-0'>Apply</Button>
 
                 </Modal.Footer>
             </Modal>
-        </div>
+        // </div>
     )
 }
 
