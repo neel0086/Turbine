@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import './InputOutput.css'
 import Run from "../../images/run.png"
 import Save from "../../images/save.png"
-
 import { runCpp, runPy } from '../Editor/run';
 import { SuggestionContext } from '../../context/SuggestionProvider';
 import { ProviderContext } from '../../context/Provider';
+import Cross from "../../images/cross.png"
+
 const fs = window.require('fs');
 function InputOutput({ suggestionResult }) {
     const [outputData, setOutputData] = useState();
     const [inputData, setInputData] = useState("");
+    
     console.log(suggestionResult)
 
-    const { suggestionVal, setSuggestionVal } = useContext(SuggestionContext)
+    const { suggestionVal, setSuggestionVal,closeIo,setCloseIo } = useContext(SuggestionContext)
 
     const {
         fileVal,
@@ -91,38 +93,32 @@ function InputOutput({ suggestionResult }) {
 
         })
     }
-
+    
+    const copyHelper = (key) => {
+        navigator.clipboard.writeText(suggestionVal[key]);
+    }
     return (
         <div className="io-screen" style={{ height: '100%', width: '100%' }}>
             <div className='io-navbar'>
                 <div className='suggestion'>
-<<<<<<< HEAD
                     {suggestionResult && suggestionResult.map((key, index) => {
-                        return <span>{key.item}</span>
+                        return <span onClick={() => copyHelper(key.item)}>{key.item}</span>
                     })}
 
                     {/* <span>hello</span> */}
-=======
-                    <span>avg</span>
-                    <span>sum</span>
-                    <span>sub</span>
-                    <span>prefix</span>
-                    <span>bits</span>
->>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
 
                 </div>
                 <div className='runBtn'>
                     <img src={Save} onClick={SaveFile} />
                     <img src={Run} onClick={handleSubmit} />
-<<<<<<< HEAD
+                    <img src={Cross} onClick={handleSubmit} />
+
                     {/* <img src={CloseBtn} className="closeBtn"/> */}
-=======
->>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
                 </div>
             </div>
             <div className="inp_out">
                 <div className='io-area'>
-
+                    
                     <textarea className='io-area io-area-text' onChange={(e) => SaveInput(e)} value={inputData} spellCheck='false' />
                 </div>
                 <div className='io-area'>
