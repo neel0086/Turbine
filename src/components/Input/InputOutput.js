@@ -96,17 +96,28 @@ function InputOutput({ suggestionResult }) {
         <div className="io-screen" style={{ height: '100%', width: '100%' }}>
             <div className='io-navbar'>
                 <div className='suggestion'>
+<<<<<<< HEAD
                     {suggestionResult && suggestionResult.map((key, index) => {
                         return <span>{key.item}</span>
                     })}
 
                     {/* <span>hello</span> */}
+=======
+                    <span>avg</span>
+                    <span>sum</span>
+                    <span>sub</span>
+                    <span>prefix</span>
+                    <span>bits</span>
+>>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
 
                 </div>
                 <div className='runBtn'>
                     <img src={Save} onClick={SaveFile} />
                     <img src={Run} onClick={handleSubmit} />
+<<<<<<< HEAD
                     {/* <img src={CloseBtn} className="closeBtn"/> */}
+=======
+>>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
                 </div>
             </div>
             <div className="inp_out">

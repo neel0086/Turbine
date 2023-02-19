@@ -59,9 +59,12 @@
     cursor: pointer;
     background-color: var(--fbar);
     border-radius: 4px;
+<<<<<<< HEAD
 }
 .closeBtn{
     margin-left: 25px;
     width: 18px;
     filter: invert(0.5);
+=======
+>>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
 }
