@@ -19,7 +19,6 @@ const Editor = () => {
   const [currWord, setCurrWord] = useState("")
   const [suggestionResult,setSuggestionResult] =useState([])
 
-<<<<<<< HEAD
   const { languageMode,
     themeMode,
     fontVal,
@@ -27,20 +26,6 @@ const Editor = () => {
     codeVal,
     setCodeVal } = useContext(ProviderContext)
   // const [suggestionFunctions, setSuggestionFunctions] = useState({});
-=======
-const ipcRenderer = window.require('electron')
-
-
-const Editor = (props) => {
-  const [code, setCode] = useState();
-  
-
-  const { languageMode, setLanguageMode } = useContext(LanguageContext)
-  const { themeMode, setThemeMode } = useContext(ThemeModeContext)
-  const { fontVal, setFontVal } = useContext(FontContext)
-  const { fileVal, setFileVal } = useContext(FileContext);
-  const { codeVal, setCodeVal } = useContext(CodeContext)
->>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
   const OnChangeHandler = (value) => {
     setCodeVal(value);
 
@@ -68,7 +53,6 @@ const Editor = (props) => {
 
   window.oncontextmenu = function () {
 
-<<<<<<< HEAD
     const editor = editorRef.current.editor;
     const selectedText = editor.getCopyText();
     const functionNameMatch = selectedText.match(/int\s+(\w+)\s*\(/);
@@ -118,33 +102,10 @@ const Editor = (props) => {
   }
 
   return (
-    <div style={{ height: '88%' }}>
+    <div style={{ height: '50%' }}>
       <Box elevation={3} sx={{ height: '100%' }}>
         <AceEditor
           ref={editorRef}
-=======
-  const [formattedCode, setFormattedCode] = useState('');
-  const codeRef = useRef(null);
-  const editorRef = useRef(null);
- useEffect(()=>{
-  window.oncontextmenu = function () {
-      
-      const editor = editorRef.current.editor;
-      const selectedText = editor.getCopyText();
-      console.log("Selected text:", selectedText);
-  }
- })
-
-
-
-
-  return (
-    <div style={{ height: '50%' }}>
-      {/* <button onClick={handleSubmit}>Hello</button> */}
-      <Box elevation={3} sx={{ height: '100%' }}>
-        <AceEditor
-        ref={editorRef}
->>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
           mode={languageMode == "python3" || languageMode == "python2" ? "python" : languageMode}
           theme={themeMode}
           onChange={OnChangeHandler}
@@ -169,12 +130,8 @@ const Editor = (props) => {
         />
 
       </Box>
-<<<<<<< HEAD
       <InputOutput suggestionResult={suggestionResult}/>
-      <LeetcodeExtension questionId="two-sum" />
-=======
-      <InputOutput/>
->>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
+      {/* <LeetcodeExtension questionSlug="two-sum" /> */}
     </div>
   );
 };
