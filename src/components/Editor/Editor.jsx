@@ -27,11 +27,7 @@ const ipcRenderer = window.require('electron')
 
 const Editor = (props) => {
   const [code, setCode] = useState();
-<<<<<<< HEAD
   
-=======
-  const [output,setOutput] = useState();
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
 
   const { languageMode, setLanguageMode } = useContext(LanguageContext)
   const { themeMode, setThemeMode } = useContext(ThemeModeContext)
@@ -77,43 +73,25 @@ const Editor = (props) => {
 
   const [formattedCode, setFormattedCode] = useState('');
   const codeRef = useRef(null);
+  const editorRef = useRef(null);
+ useEffect(()=>{
+  window.oncontextmenu = function () {
+      
+      const editor = editorRef.current.editor;
+      const selectedText = editor.getCopyText();
+      console.log("Selected text:", selectedText);
+  }
+ })
 
- 
 
 
 
-
-<<<<<<< HEAD
   return (
     <div style={{ height: '50%' }}>
       {/* <button onClick={handleSubmit}>Hello</button> */}
-=======
-    // Synchronous message emmiter and handler
-    //  console.log(ipcRenderer.sendSync('synchronous-message', 'sync ping')) 
-    try {
-      await runCpp(fileVal['path'])
-      setOutput("changed state")
-      // console.log(output)
-      // setOutput(output)
-    }
-    catch (e) { console.log(e) }
-  }
-
-
-  const [formattedCode, setFormattedCode] = useState('');
-  const codeRef = useRef(null);
-
- 
-
-
-
-
-  return (
-    <div style={{ height: '50%' }}>
-      <button onClick={handleSubmit}>Hello</button>
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
       <Box elevation={3} sx={{ height: '100%' }}>
         <AceEditor
+        ref={editorRef}
           mode={languageMode == "python3" || languageMode == "python2" ? "python" : languageMode}
           theme={themeMode}
           onChange={OnChangeHandler}
@@ -138,11 +116,7 @@ const Editor = (props) => {
         />
         
       </Box>
-<<<<<<< HEAD
       <InputOutput/>
-=======
-      <InputOutput output={output}/>
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
     </div>
   );
 };

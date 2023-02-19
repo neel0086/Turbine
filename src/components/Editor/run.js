@@ -7,13 +7,7 @@ const fs = require("fs")
 // if(!fs.existsSync(outputCodes)){
 //     fs.mkdirSync(outputCodes,{recursive:true})
 // }
-<<<<<<< HEAD
 export const runCpp = (filepath) => {
-=======
-const runCpp = (filepath) => {
-  const inputFile = "D:\\SDP\\io\\input.txt"
-  const outputFile = "D:\\SDP\\io\\output.txt"
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
 
   const directoryName = filepath.substring(0, filepath.lastIndexOf("\\"))
   const fileName = filepath.substring(filepath.lastIndexOf("\\")+1,filepath.length)
@@ -22,11 +16,7 @@ const runCpp = (filepath) => {
   console.log("Process started")
   return new Promise((resolve, reject) => {
     exec(
-<<<<<<< HEAD
       `cd ${directoryName} && g++ ${fileName} -o ${jobId}.out && ${jobId}.out < ${process.env.REACT_APP_INPUTFILE} > ${process.env.REACT_APP_OUTPUTFILE}`,
-=======
-      `cd ${directoryName} && g++ ${fileName} -o ${jobId}.out && ${jobId}.out < ${inputFile} > ${outputFile}`,
->>>>>>> dd394c0115bf9493cd3515b3ad1634ca82858f7a
 
       (error, stdout, stderr) => {
         error && reject({ error, stderr });
