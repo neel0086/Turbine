@@ -16,9 +16,6 @@ import CodeProvider from "./context/CodeProvider";
 import InputOutput from "./components/Input/InputOutput";
 import SuggestionProvider from "./context/SuggestionProvider";
 import Provider from "./context/Provider";
-import LeetcodeExtension from "./components/LeetcodeExtension/LeetcodeExtension";
-import MatrixTesting from "./components/matrixTesting/MatrixTesting";
-import SidebarDisplay from "./SidebarDisplay";
 
 
 function App() {
@@ -73,9 +70,8 @@ function App() {
 
                           <SideBar />
                           <div style={{ width: '100%', display: 'flex' }}>
-                            <SidebarDisplay />
-                            
-                            
+                            <SidebarExpandable />
+                            <Tree /><Settings />
 
 
                             <div className="editor-Area" >
