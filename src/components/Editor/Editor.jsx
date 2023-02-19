@@ -103,10 +103,30 @@ const Editor = () => {
     }
   }
 
-  
+  return (
+    <div style={{ height: '88%' }}>
+      <Box elevation={3} sx={{ height: '100%' }}>
+        <AceEditor
+          ref={editorRef}
+=======
+  const [formattedCode, setFormattedCode] = useState('');
+  const codeRef = useRef(null);
+  const editorRef = useRef(null);
+ useEffect(()=>{
+  window.oncontextmenu = function () {
+      
+      const editor = editorRef.current.editor;
+      const selectedText = editor.getCopyText();
+      console.log("Selected text:", selectedText);
+  }
+ })
+
+
+
 
   return (
-    <div style={{ height: `${closeIo}+"%`}}>
+    <div style={{ height: '50%' }}>
+      {/* <button onClick={handleSubmit}>Hello</button> */}
       <Box elevation={3} sx={{ height: '100%' }}>
         <AceEditor
           ref={editorRef}
@@ -134,8 +154,12 @@ const Editor = () => {
         />
 
       </Box>
-      <InputOutput suggestionResult={suggestionResult} closeIo={closeIo}/>
-      {/* <LeetcodeExtension questionSlug="two-sum" /> */}
+<<<<<<< HEAD
+      <InputOutput suggestionResult={suggestionResult}/>
+      <LeetcodeExtension questionId="two-sum" />
+=======
+      <InputOutput/>
+>>>>>>> a17fcd9d38c7024bd8d869a84ff491c83ac0b9ed
     </div>
   );
 };

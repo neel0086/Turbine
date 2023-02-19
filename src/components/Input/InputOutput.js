@@ -111,8 +111,7 @@ function InputOutput({ suggestionResult }) {
                 <div className='runBtn'>
                     <img src={Save} onClick={SaveFile} />
                     <img src={Run} onClick={handleSubmit} />
-                    <img src={Cross} onClick={handleSubmit} />
-
+<<<<<<< HEAD
                     {/* <img src={CloseBtn} className="closeBtn"/> */}
                 </div>
             </div>
